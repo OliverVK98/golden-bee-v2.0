@@ -22,18 +22,21 @@ export const StylesSection = () => (
         width={350}
         height={300}
         text="Modern Styles"
+        url="/earrings"
       />
       <SectionImage
         imgSrc={NATURE_LOVERS_IMAGE}
         width={350}
         height={300}
         text="Nature Lovers"
+        url="/bees"
       />
       <SectionImage
         imgSrc={PREMIUM_JEWELRY_IMAGE}
         width={350}
         height={300}
         text="Premium Jewelry"
+        url="/rings"
       />
     </Stack>
   </Stack>

@@ -1,12 +1,17 @@
+"use client";
+
 import Image from "next/legacy/image";
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
 
 interface StarRatingProps {
-  rating: number;
+  rating: number | null;
+  onClick?: () => void;
 }
 export const StarRating = (props: StarRatingProps) => {
-  const { rating } = props;
+  const { rating, onClick } = props;
+
+  if(!rating) return null;
 
   return (
     <Stack
@@ -15,6 +20,7 @@ export const StarRating = (props: StarRatingProps) => {
       justifyContent="center"
       alignItems="center"
       sx={{ cursor: "pointer" }}
+      onClick={onClick}
     >
       {Array.from({ length: 5 }).map((_, index) => (
         <Image

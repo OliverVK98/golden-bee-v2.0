@@ -6,13 +6,14 @@ export interface AdditionalImageWithInfo {
 }
 
 export interface Product {
+  id: number;
   name: string;
   price: number;
-  discountedPrice?: number;
-  rating: number;
-  imgUrl: string;
-  bundle?: string[];
-  additionalInfo?: AdditionalImageWithInfo[];
+  discountedPrice: number | null;
+  rating: number | null;
+  imgUrl: string[];
+  bundle: string[] | null;
+  additionalInfo: AdditionalImageWithInfo[] | null;
 }
 
 export interface CartProduct extends Product {
@@ -20,12 +21,13 @@ export interface CartProduct extends Product {
 }
 
 export const testProduct: Product = {
+  id: 1,
   name: "You Are My Sunshine Necklace",
   price: 99.99,
   discountedPrice: 49.99,
   rating: 312,
   imgUrl:
-    "https://beekind.shop/cdn/shop/products/sunflower-necklace-bee-kind-shop-jewelry-green-leaf-120_370x.png?v=1647456186",
+    ["https://beekind.shop/cdn/shop/products/sunflower-necklace-bee-kind-shop-jewelry-green-leaf-120_370x.png?v=1647456186"],
   bundle: ["Sunflower Necklace", "Gift Note and Box", "Free Sticker Pack"],
   additionalInfo: [
     {

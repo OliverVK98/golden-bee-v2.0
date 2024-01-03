@@ -1,3 +1,5 @@
+"use client";
+
 import { Stack } from "@mui/material";
 import Image from "next/legacy/image";
 

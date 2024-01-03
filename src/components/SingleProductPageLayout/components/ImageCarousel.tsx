@@ -94,8 +94,7 @@ export const ImageCarousel = (props: ImageCarouselProps) => {
           }
         />
       </Box>
-      {/* TODO: This should have gap and not SP, if less than 5 pics. */}
-      <Stack direction="row" justifyContent="space-between">
+      <Stack direction="row" gap="26.25px">
         {images.map((image, index) => (
           <Image
             key={index}

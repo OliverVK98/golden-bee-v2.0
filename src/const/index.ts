@@ -4,6 +4,7 @@ export enum ItemType {
   BRACELETS = "Bracelets",
   EARRINGS = "Earrings",
   BUNDLES = "Bundles",
+  GIFT_CARD = "Gift Cards"
 }
 
 export enum CollectionType {
@@ -11,25 +12,24 @@ export enum CollectionType {
   DAISIES = "Daisies",
   BEES = "Bees",
   BRACELETSWITHNOTES = "Bracelets With Notes",
-  GOLDSTYLEJEWELRY = "Gold Style Jewelry",
-  SILVERSTYLEJEWELRY = "Silver Style Jewelry",
+  ACCESSORIES = "Accessories"
 }
 
 export const itemCollectionURLMapper: Record<
   ItemType | CollectionType,
   string
 > = {
-  [CollectionType.BEES]: "/collections/bees",
-  [CollectionType.DAISIES]: "/collections/daisies",
-  [CollectionType.SUNFLOWERS]: "/collections/sunflowers",
-  [CollectionType.BRACELETSWITHNOTES]: "/collections/bracelets-with-notes",
-  [CollectionType.GOLDSTYLEJEWELRY]: "/collections/gold-style-jewelry",
-  [CollectionType.SILVERSTYLEJEWELRY]: "/collections/silver-style-jewelry",
-  [ItemType.BRACELETS]: "/items/bracelets",
-  [ItemType.BUNDLES]: "/items/bundles",
-  [ItemType.EARRINGS]: "/items/earrings",
-  [ItemType.RINGS]: "/items/rings",
-  [ItemType.NECKLACES]: "/items/necklaces",
+  [CollectionType.SUNFLOWERS]: "/sunflowers",
+  [CollectionType.DAISIES]: "/daisies",
+  [CollectionType.BEES]: "/bees",
+  [CollectionType.BRACELETSWITHNOTES]: "/bracelets_with_notes",
+  [CollectionType.ACCESSORIES]: "accessories",
+  [ItemType.BRACELETS]: "/bracelets",
+  [ItemType.BUNDLES]: "/bundles",
+  [ItemType.EARRINGS]: "/earrings",
+  [ItemType.RINGS]: "/rings",
+  [ItemType.NECKLACES]: "/necklaces",
+  [ItemType.GIFT_CARD]: "gift_cards"
 };
 
 interface FooterItem {

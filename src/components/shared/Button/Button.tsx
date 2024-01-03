@@ -1,3 +1,5 @@
+"use client";
+
 import { Button as MaterialButton, Theme } from "@mui/material";
 import { SxProps } from "@mui/system";
 import { Text } from "@/components/shared/Text/Text";
@@ -18,13 +20,22 @@ interface ButtonProps {
   text: string;
   sx?: SxProps<Theme>;
   isInverted?: boolean;
+  disabled?: boolean;
 }
 export const Button = (props: ButtonProps) => {
-  const { onClick, text, width = ButtonWidth.SMALL, sx, isInverted } = props;
+  const {
+    onClick,
+    text,
+    width = ButtonWidth.SMALL,
+    sx,
+    isInverted,
+    disabled,
+  } = props;
 
   return (
     <MaterialButton
       onClick={onClick}
+      disabled={disabled}
       sx={{
         padding: 0,
         width,

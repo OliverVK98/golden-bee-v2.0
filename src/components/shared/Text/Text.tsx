@@ -1,3 +1,5 @@
+"use client";
+
 import Typography from "@mui/material/Typography";
 import { SxProps } from "@mui/system";
 import { Theme } from "@mui/material";

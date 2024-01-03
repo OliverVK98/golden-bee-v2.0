@@ -24,7 +24,7 @@ export const CheckoutProductCard = (props: CheckoutProductCardProps) => {
             }}
           >
             <Image
-              src={product.imgUrl}
+              src={product.imgUrl[0]}
               alt="cart-product"
               width={64}
               height={64}

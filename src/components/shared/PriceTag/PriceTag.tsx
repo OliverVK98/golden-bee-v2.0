@@ -1,17 +1,20 @@
+"use client";
+
 import { Stack } from "@mui/material";
 import { Text, TextSize } from "@/components/shared/Text/Text";
 
 interface PriceTagProps {
   price: number;
-  discountedPrice?: number;
+  discountedPrice: number | null;
   size?: TextSize;
+  onClick?: () => void;
 }
 
 export const PriceTag = (props: PriceTagProps) => {
-  const { discountedPrice, price, size = TextSize.XS } = props;
+  const { discountedPrice, price, size = TextSize.XS, onClick } = props;
 
   return (
-    <Stack direction="row" gap="4px" justifyContent="center">
+    <Stack direction="row" gap="4px" justifyContent="center" onClick={onClick}>
       {discountedPrice && (
         <>
           <Text

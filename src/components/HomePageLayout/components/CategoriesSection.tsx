@@ -30,6 +30,7 @@ export const CategoriesSection = () => (
           width={530}
           height={300}
           text="Bracelets with Notes"
+          url="/bracelets_with_notes"
         />
       </Grid>
       <Grid item xs={6} sm={6} sx={{ paddingTop: "0 !important" }}>
@@ -38,6 +39,7 @@ export const CategoriesSection = () => (
           width={530}
           height={300}
           text="Silver Style Jewelry"
+          url="/rings"
         />
       </Grid>
       <Grid item xs={6} sm={6}>
@@ -46,6 +48,7 @@ export const CategoriesSection = () => (
           width={530}
           height={300}
           text="Bees"
+          url="/bees"
         />
       </Grid>
       <Grid item xs={6} sm={6}>
@@ -54,6 +57,7 @@ export const CategoriesSection = () => (
           width={530}
           height={300}
           text="Sunflowers"
+          url="/sunflowers"
         />
       </Grid>
     </Grid>

@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useRouter } from "next/navigation";
 import Image from "next/legacy/image";
 import { Text, TextSize } from "@/components/shared/Text/Text";
 import { sectionImageTextZIndex } from "@/const";
@@ -8,10 +9,14 @@ interface SectionImageProps {
   text: string;
   width: number;
   height: number;
+  url: string;
 }
 
 export const SectionImage = (props: SectionImageProps) => {
-  const { text, imgSrc, height, width } = props;
+  const { text, imgSrc, height, width, url } = props;
+  const router = useRouter();
+
+  const onImageClick = () => router.push(url);
 
   return (
     <Box
@@ -39,9 +44,9 @@ export const SectionImage = (props: SectionImageProps) => {
         <Image
           src={imgSrc}
           alt="section-img"
+          onClick={onImageClick}
           layout="fill"
           objectFit="cover"
-          priority
         />
       </div>
       <Text

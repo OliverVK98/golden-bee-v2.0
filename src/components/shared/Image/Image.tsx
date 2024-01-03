@@ -1,5 +1,8 @@
+"use client";
+
 import NextImage from "next/legacy/image";
-import { Stack } from "@mui/material";
+import { Stack, Theme } from "@mui/material";
+import { SxProps } from "@mui/system";
 
 export interface StaticImageData {
   src: string;
@@ -20,6 +23,7 @@ interface BaseImageProps {
   height?: SafeNumber;
   alt: string;
   isLoading?: boolean;
+  sx?: SxProps<Theme>;
 }
 
 interface ClickableImageProps extends BaseImageProps {
@@ -43,6 +47,7 @@ export const Image = (props: ImageProps) => {
     alt,
     isLoading,
     clickable,
+    sx,
     ...otherProps
   } = props;
 
@@ -62,7 +67,7 @@ export const Image = (props: ImageProps) => {
 
   if (!isBorderActive && clickable) {
     return (
-      <Stack sx={{ cursor: "pointer" }}>
+      <Stack sx={{ cursor: "pointer", ...sx }}>
         <NextImage
           priority={priority}
           src={src}
@@ -81,6 +86,7 @@ export const Image = (props: ImageProps) => {
         border: "5px solid #39A934",
         cursor: "pointer",
         boxSizing: "border-box",
+        ...sx,
       }}
     >
       <NextImage
@@ -89,6 +95,7 @@ export const Image = (props: ImageProps) => {
         alt={alt}
         height={height ? +height - 10 : undefined}
         width={width ? +width - 10 : undefined}
+        quality={100}
         {...otherProps}
       />
     </Stack>

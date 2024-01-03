@@ -1,3 +1,5 @@
+"use client";
+
 import { ChangeEvent, useState, FocusEvent } from "react";
 import { IconButton, Input, InputAdornment } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";

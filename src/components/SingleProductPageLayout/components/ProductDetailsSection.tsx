@@ -1,5 +1,4 @@
 "use client";
-
 import { Stack } from "@mui/material";
 import { Product } from "@/types/types";
 import { Text, TextSize } from "@/components/shared/Text/Text";
@@ -30,7 +29,7 @@ export const ProductDetailsSection = (props: ProductDetailsSectionProps) => {
         gap="10px"
       >
         <Text text={product.name} size={TextSize.M} bold />
-        <StarRating rating={product.rating} />
+        {product.rating && <StarRating rating={product.rating}/>}
         <PriceTag
           price={product.price}
           discountedPrice={product.discountedPrice}
@@ -42,7 +41,7 @@ export const ProductDetailsSection = (props: ProductDetailsSectionProps) => {
         <ProductQuantityInput />
         <Button text="ADD TO CART" width={ButtonWidth.FULL} />
         <PaymentMethods />
-        <BundleDetails bundle={product.bundle} />
+        {product.bundle && <BundleDetails bundle={product.bundle}/>}
       </Stack>
     </Stack>
   );

@@ -48,5 +48,12 @@ export const theme: Theme = createTheme({
         },
       },
     },
+    MuiSkeleton: {
+      styleOverrides: {
+        root: {
+          transform: "scale(1, 1) !important",
+        },
+      },
+    },
   },
 });

@@ -10,14 +10,14 @@ import { StylesSection } from "@/components/HomePageLayout/components/StylesSect
 
 export const HomePageLayout = () => (
   <Stack direction="column" gap="4px">
-    <HomePageBanner />
-    <ItemSection title="Trending Now" />
-    <HomePageTextSection />
-    <ItemSection title="New Arrivals" />
-    <HomePageImage src={FRONT_IMAGE_THREE} />
-    <CategoriesSection />
-    <UserSubscription title="Subscribe for exclusive deals and VIP access" />
-    <StylesSection />
-    <HomePageImage src={FRONT_IMAGE_FOUR} />
+      <HomePageBanner />
+      <ItemSection title="Trending Now" priority/>
+      <HomePageTextSection />
+      <ItemSection title="New Arrivals" />
+      <HomePageImage src={FRONT_IMAGE_THREE} />
+      <CategoriesSection />
+      <UserSubscription title="Subscribe for exclusive deals and VIP access" />
+      <StylesSection />
+      <HomePageImage src={FRONT_IMAGE_FOUR} />
   </Stack>
 );
