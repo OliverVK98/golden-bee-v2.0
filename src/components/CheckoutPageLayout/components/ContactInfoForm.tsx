@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Checkbox,
   FormControlLabel,
@@ -5,25 +7,32 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
+import { FieldErrorsImpl, useFormContext } from "react-hook-form";
 import { Text, TextSize } from "@/components/shared/Text/Text";
+import { OrderForm } from "@/types/types";
 
 export const ContactInfoForm = () => {
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = () => {
-    setChecked((prevState) => !prevState);
-  };
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+  const formErrors = errors as FieldErrorsImpl<OrderForm>;
 
   return (
     <Stack>
       <Text text="Contact Information" bold size={TextSize.M} />
-      <TextField label="Email" fullWidth margin="normal" />
+      <TextField
+        label="Email"
+        fullWidth
+        margin="normal"
+        {...register("email")}
+        error={!!formErrors.email}
+        helperText={formErrors.email?.message}
+      />
       <FormGroup>
         <FormControlLabel
-          control={
-            <Checkbox checked={checked} onChange={handleChange} name="email" />
-          }
+          control={<Checkbox {...register("sendOffers")} />}
           label="Email me with news and offers"
         />
       </FormGroup>

@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge, Stack } from "@mui/material";
 import { CartProduct } from "@/types/types";
 import { Image } from "@/components/shared/Image/Image";

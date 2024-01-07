@@ -13,12 +13,16 @@ interface CartContextProps {
   cartProducts: CartProduct[];
   addProduct: (product: Product) => void;
   removeProduct: (productId: number) => void;
+  addProductWithQuantity: (product: Product, quantity: number) => void;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<CartContextProps>({
   cartProducts: [],
   addProduct: (product: Product) => {},
   removeProduct: (productId: number) => {},
+  clearCart: () => {},
+  addProductWithQuantity: (product: Product, quantity: number) => {},
 });
 
 export const useCartContext = () => useContext(CartContext);
@@ -64,8 +68,33 @@ export const CartContextProvider = ({ children }: PropsWithChildren) => {
     });
   };
 
+  const clearCart = () => {
+    setCartProducts([]);
+  };
+
+  const addProductWithQuantity = (product: Product, quantity: number) => {
+    setCartProducts((prevProducts) => {
+      const existingProduct = prevProducts.find((p) => p.id === product.id);
+
+      if (existingProduct) {
+        return prevProducts.map((p) =>
+          p.id === product.id ? { ...p, quantity: p.quantity + quantity } : p,
+        );
+      }
+      return [...prevProducts, { ...product, quantity }];
+    });
+  };
+
   return (
-    <CartContext.Provider value={{ cartProducts, addProduct, removeProduct }}>
+    <CartContext.Provider
+      value={{
+        cartProducts,
+        addProduct,
+        removeProduct,
+        clearCart,
+        addProductWithQuantity,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

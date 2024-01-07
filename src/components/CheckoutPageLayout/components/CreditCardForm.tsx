@@ -6,15 +6,17 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useFormContext } from "react-hook-form";
 import { Text, TextSize } from "@/components/shared/Text/Text";
 import { DeliveryForm } from "@/components/CheckoutPageLayout/components/DeliveryForm";
 
 export const CreditCardForm = () => {
-  const [checked, setChecked] = useState(true);
+  const { register, watch, setValue } = useFormContext();
+  const shippingBillingIsSame = watch("shippingBillingIsSame");
 
-  const handleChange = () => {
-    setChecked((prevState) => !prevState);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.checked;
+    setValue("shippingBillingIsSame", value);
   };
 
   return (
@@ -33,13 +35,16 @@ export const CreditCardForm = () => {
       <FormGroup>
         <FormControlLabel
           control={
-            <Checkbox checked={checked} onChange={handleChange} name="email" />
+            <Checkbox
+              {...register("shippingBillingIsSame", { onChange: handleChange })}
+              checked={shippingBillingIsSame}
+            />
           }
           label="Use shipping address as billing address"
         />
       </FormGroup>
-      <Collapse in={!checked}>
-        <DeliveryForm title="Billing Address" />
+      <Collapse in={!shippingBillingIsSame}>
+        <DeliveryForm title="Billing Address" isBillingForm />
       </Collapse>
     </Stack>
   );

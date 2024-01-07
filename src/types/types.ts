@@ -20,14 +20,50 @@ export interface CartProduct extends Product {
   quantity: number;
 }
 
+interface ShippingAddress {
+  shippingFirstName: string;
+  shippingLastName: string;
+  shippingAddress: string;
+  shippingCity: string;
+  shippingState: string;
+  shippingZipCode: string;
+  shippingPhone?: string;
+}
+
+interface BillingAddress {
+  billingFirstName: string;
+  billingLastName: string;
+  billingAddress: string;
+  billingCity: string;
+  billingState: string;
+  billingZipCode: string;
+  billingPhone?: string;
+}
+
+export interface OrderForm {
+  email: string;
+  sendOffers: boolean;
+  shippingAddress: ShippingAddress;
+  shippingBillingIsSame: boolean;
+  billingAddress: BillingAddress;
+}
+
+export interface Order extends Omit<OrderForm, "billingAddress"> {
+  firstName: string;
+  lastName: string;
+  orderData: string;
+  billingAddress: BillingAddress | null;
+}
+
 export const testProduct: Product = {
   id: 1,
   name: "You Are My Sunshine Necklace",
   price: 99.99,
   discountedPrice: 49.99,
   rating: 312,
-  imgUrl:
-    ["https://beekind.shop/cdn/shop/products/sunflower-necklace-bee-kind-shop-jewelry-green-leaf-120_370x.png?v=1647456186"],
+  imgUrl: [
+    "https://beekind.shop/cdn/shop/products/sunflower-necklace-bee-kind-shop-jewelry-green-leaf-120_370x.png?v=1647456186",
+  ],
   bundle: ["Sunflower Necklace", "Gift Note and Box", "Free Sticker Pack"],
   additionalInfo: [
     {

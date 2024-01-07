@@ -1,12 +1,17 @@
 "use client";
 
-import { ChangeEvent, useState, FocusEvent } from "react";
+import { ChangeEvent, FocusEvent, Dispatch, SetStateAction } from "react";
 import { IconButton, Input, InputAdornment } from "@mui/material";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
-export const ProductQuantityInput = () => {
-  const [quantity, setQuantity] = useState(1);
+interface ProductQuantityInputProps {
+  quantity: number;
+  setQuantity: Dispatch<SetStateAction<number>>;
+}
+
+export const ProductQuantityInput = (props: ProductQuantityInputProps) => {
+  const { quantity, setQuantity } = props;
 
   const onAddQuantityButtonClick = () => {
     setQuantity((prev) => prev + 1);

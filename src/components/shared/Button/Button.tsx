@@ -4,6 +4,8 @@ import { Button as MaterialButton, Theme } from "@mui/material";
 import { SxProps } from "@mui/system";
 import { Text } from "@/components/shared/Text/Text";
 
+type ButtonType = "submit" | "button" | "reset";
+
 export enum ButtonWidth {
   SMALL = "115px",
   MEDIUM = "170px",
@@ -21,6 +23,7 @@ interface ButtonProps {
   sx?: SxProps<Theme>;
   isInverted?: boolean;
   disabled?: boolean;
+  type?: ButtonType;
 }
 export const Button = (props: ButtonProps) => {
   const {
@@ -30,12 +33,14 @@ export const Button = (props: ButtonProps) => {
     sx,
     isInverted,
     disabled,
+    type = "button",
   } = props;
 
   return (
     <MaterialButton
       onClick={onClick}
       disabled={disabled}
+      type={type}
       sx={{
         padding: 0,
         width,
