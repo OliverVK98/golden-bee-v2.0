@@ -1,12 +1,12 @@
-import {Stack} from "@mui/material";
+import { Stack } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
-import {Text} from "@/components/shared/Text/Text";
 import IconButton from "@mui/material/IconButton";
 import DisabledByDefaultIcon from "@mui/icons-material/DisabledByDefault";
-import {EmptyCart} from "@/components/Cart/components/EmptyCart";
-import {NonEmptyCart} from "@/components/Cart/components/NonEmptyCart";
-import {KeyboardEvent} from "react";
-import {useCartContext} from "@/context";
+import { KeyboardEvent } from "react";
+import { Text } from "@/components/shared/Text/Text";
+import { EmptyCart } from "@/components/Cart/components/EmptyCart";
+import { NonEmptyCart } from "@/components/Cart/components/NonEmptyCart";
+import { useCartContext } from "@/context";
 
 interface DrawerContentProps {
   handleKeyDown: (event: KeyboardEvent) => void;
@@ -14,8 +14,8 @@ interface DrawerContentProps {
 }
 
 export const DrawerContent = (props: DrawerContentProps) => {
-  const {handleKeyDown, toggleDrawer} = props;
-  const {cartProducts} = useCartContext();
+  const { handleKeyDown, toggleDrawer } = props;
+  const { cartProducts } = useCartContext();
 
   return (
     <Stack
@@ -45,8 +45,8 @@ export const DrawerContent = (props: DrawerContentProps) => {
           <DisabledByDefaultIcon color="error" />
         </IconButton>
       </Stack>
-      {cartProducts.length<1 && <EmptyCart toggleDrawer={toggleDrawer} />}
-      {cartProducts.length>0 && <NonEmptyCart setIsOpen={toggleDrawer}/>}
+      {cartProducts.length < 1 && <EmptyCart toggleDrawer={toggleDrawer} />}
+      {cartProducts.length > 0 && <NonEmptyCart setIsOpen={toggleDrawer} />}
     </Stack>
   );
-}
+};

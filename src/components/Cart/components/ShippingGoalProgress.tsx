@@ -1,11 +1,11 @@
 import { LinearProgress, Stack } from "@mui/material";
 import { Text } from "@/components/shared/Text/Text";
 
-interface ShippingGoalProgress {
+interface ShippingGoalProgressProps {
   currentProgress: number;
   goal: number;
 }
-export const ShippingGoalProgress = (props: ShippingGoalProgress) => {
+export const ShippingGoalProgress = (props: ShippingGoalProgressProps) => {
   const { currentProgress, goal } = props;
 
   if (currentProgress > goal)

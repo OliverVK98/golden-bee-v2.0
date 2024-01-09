@@ -4,7 +4,7 @@ export enum ItemType {
   BRACELETS = "Bracelets",
   EARRINGS = "Earrings",
   BUNDLES = "Bundles",
-  GIFT_CARD = "Gift Cards"
+  GIFT_CARD = "Gift Cards",
 }
 
 export enum CollectionType {
@@ -12,7 +12,7 @@ export enum CollectionType {
   DAISIES = "Daisies",
   BEES = "Bees",
   BRACELETSWITHNOTES = "Bracelets With Notes",
-  ACCESSORIES = "Accessories"
+  ACCESSORIES = "Accessories",
 }
 
 export const itemCollectionURLMapper: Record<
@@ -29,7 +29,7 @@ export const itemCollectionURLMapper: Record<
   [ItemType.EARRINGS]: "/earrings",
   [ItemType.RINGS]: "/rings",
   [ItemType.NECKLACES]: "/necklaces",
-  [ItemType.GIFT_CARD]: "gift_cards"
+  [ItemType.GIFT_CARD]: "gift_cards",
 };
 
 interface FooterItem {
@@ -102,7 +102,8 @@ export const FRONT_IMAGE_THREE =
   "https://beekind.shop/cdn/shop/files/BEE-ing_Kind_is_a_Lifestyle_2048x.jpg?v=1623903758";
 
 export const FRONT_IMAGE_FOUR =
-  "https://beekind.shop/cdn/shop/files/Join_the_Movement_to_Save_Our_Buzzing_Friends_39a722de-5768-4689-84f6-6393f7c5088d_2048x.jpg?v=1623903777";
+  "https://beekind.shop/cdn/shop/files/Join_the_Movement_to_Save_Our_Buzzing_Friends" +
+  "_39a722de-5768-4689-84f6-6393f7c5088d_2048x.jpg?v=1623903777";
 
 export const FRONT_PAGE_TEXT =
   "Wear your lovely Bee Kind accessories as a reminder of being part of the community. Every purchase saves the bees.";
