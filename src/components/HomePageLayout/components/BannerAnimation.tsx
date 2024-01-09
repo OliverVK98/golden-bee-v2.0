@@ -1,5 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { Stack } from "@mui/material";
+import { useRouter } from "next/navigation";
 import { animationBannerZIndex } from "@/const";
 import { Button, ButtonWidth } from "@/components/shared/Button/Button";
 
@@ -9,6 +10,9 @@ interface AnimatedTextProps {
 
 export const BannerAnimation = (props: AnimatedTextProps) => {
   const { text } = props;
+  const router = useRouter();
+
+  const onButtonClick = () => router.push("/all");
 
   return (
     <Stack
@@ -33,7 +37,11 @@ export const BannerAnimation = (props: AnimatedTextProps) => {
       }}
     >
       <Typography sx={{ fontSize: "3rem" }}>{text}</Typography>
-      <Button width={ButtonWidth.MEDIUM} text="SHOP NOW" />
+      <Button
+        width={ButtonWidth.MEDIUM}
+        text="SHOP NOW"
+        onClick={onButtonClick}
+      />
     </Stack>
   );
 };

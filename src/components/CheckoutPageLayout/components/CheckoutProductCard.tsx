@@ -36,9 +36,9 @@ export const CheckoutProductCard = (props: CheckoutProductCardProps) => {
         <Text text={product.name} size={TextSize.XS} />
       </Stack>
       <Text
-        text={`$${
+        text={`$${(
           (product.discountedPrice || product.price) * product.quantity
-        }`}
+        ).toFixed(2)}`}
         size={TextSize.XS}
       />
     </Stack>
