@@ -2,7 +2,7 @@ import { Product } from "@/types/types";
 import { SingleProductPageLayout } from "@/components/SingleProductPageLayout";
 
 async function getProduct(id: string) {
-  const res = await fetch(`http://localhost:8080/api/items/${id}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/items/${id}`);
 
   return res.json();
 }

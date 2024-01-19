@@ -1,8 +1,18 @@
 "use client";
 
+import React from "react";
+import dynamic from "next/dynamic";
 import Error from "next/error";
-import { ProductPageLayout } from "@/components/ProductPageLayout";
 
+const ProductPageLayout = dynamic(
+  () =>
+    import("@/components/ProductPageLayout").then(
+      (mod) => mod.ProductPageLayout,
+    ),
+  { loading: () => <p>Loading...</p> },
+);
+
+// Allowed URLs
 const AllowedCollectionsURLs = [
   "necklaces",
   "rings",
@@ -16,7 +26,9 @@ const AllowedCollectionsURLs = [
   "bracelets_with_notes",
   "accessories",
 ] as const;
+
 type AllowedCollection = (typeof AllowedCollectionsURLs)[number];
+
 const blobToTitleMapper: Record<AllowedCollection, string> = {
   bees: "Bees",
   necklaces: "Necklaces",
